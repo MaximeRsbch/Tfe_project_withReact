@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 function navbar() {
     const OpenMobileNavbar = () => {
         document.getElementById("menu").classList.toggle("hidden");
@@ -36,12 +38,16 @@ function navbar() {
                 </div>
                 <ul className="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto  lg:items-center lg:w-auto lg:space-x-6">
                     <li>
-                        <a
-                            className="text-sm text-gray-400 hover:text-gray-500"
-                            href="#"
+                        <NavLink
+                            to="/"
+                            className={({ isActive }) =>
+                                isActive
+                                    ? "text-blue-600 font-bold"
+                                    : "text-sm text-gray-400 hover:text-gray-500"
+                            }
                         >
                             Accueil
-                        </a>
+                        </NavLink>
                     </li>
                     <li className="text-gray-300">
                         <svg
@@ -60,9 +66,16 @@ function navbar() {
                         </svg>
                     </li>
                     <li>
-                        <a className="text-sm text-blue-600 font-bold" href="#">
+                        <NavLink
+                            to="/meilleur-attraction"
+                            className={({ isActive }) =>
+                                isActive
+                                    ? "text-blue-600 font-bold"
+                                    : "text-sm text-gray-400 hover:text-gray-500"
+                            }
+                        >
                             Meilleur attraction
-                        </a>
+                        </NavLink>
                     </li>
                     <li className="text-gray-300">
                         <svg
@@ -81,12 +94,16 @@ function navbar() {
                         </svg>
                     </li>
                     <li>
-                        <a
-                            className="text-sm text-gray-400 hover:text-gray-500"
-                            href="#"
+                        <NavLink
+                            to="/features"
+                            className={({ isActive }) =>
+                                isActive
+                                    ? "text-blue-600 font-bold"
+                                    : "text-sm text-gray-400 hover:text-gray-500"
+                            }
                         >
                             Nouveautés
-                        </a>
+                        </NavLink>
                     </li>
                     <li className="text-gray-300">
                         <svg
@@ -105,12 +122,16 @@ function navbar() {
                         </svg>
                     </li>
                     <li>
-                        <a
-                            className="text-sm text-gray-400 hover:text-gray-500"
-                            href="#"
+                        <NavLink
+                            to="/contact"
+                            className={({ isActive }) =>
+                                isActive
+                                    ? "text-blue-600 font-bold"
+                                    : "text-sm text-gray-400 hover:text-gray-500"
+                            }
                         >
                             Contact
-                        </a>
+                        </NavLink>
                     </li>
                     <li className="text-gray-300">
                         <svg
@@ -186,45 +207,58 @@ function navbar() {
                     </div>
                     <div>
                         <ul>
-                            <li className="mb-1">
-                                <a
-                                    className="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
-                                    href="#"
+                            <li className="mb-1 block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 ">
+                                <NavLink
+                                    onClick={CloseMobileNavbar}
+                                    to="/"
+                                    className={({ isActive }) =>
+                                        isActive
+                                            ? "text-blue-600 font-bold"
+                                            : "text-sm text-gray-400 hover:text-blue-600 rounded"
+                                    }
                                 >
-                                    Home
-                                </a>
+                                    Accueil
+                                </NavLink>
                             </li>
-                            <li className="mb-1">
-                                <a
-                                    className="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
-                                    href="#"
+                            <li className="mb-1 block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 ">
+                                <NavLink
+                                    onClick={CloseMobileNavbar}
+                                    to="/meilleur-attraction"
+                                    className={({ isActive }) =>
+                                        isActive
+                                            ? "text-blue-600 font-bold"
+                                            : "text-sm text-gray-400 hover:text-blue-600 rounded"
+                                    }
                                 >
-                                    About Us
-                                </a>
+                                    Meilleur attraction
+                                </NavLink>
                             </li>
-                            <li className="mb-1">
-                                <a
-                                    className="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
-                                    href="#"
+                            <li className="mb-1 block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 ">
+                                <NavLink
+                                    onClick={CloseMobileNavbar}
+                                    to="/features"
+                                    className={({ isActive }) =>
+                                        isActive
+                                            ? "text-blue-600 font-bold"
+                                            : "text-sm text-gray-400 hover:text-blue-600 rounded"
+                                    }
                                 >
-                                    Services
-                                </a>
+                                    Features
+                                </NavLink>
                             </li>
-                            <li className="mb-1">
-                                <a
-                                    className="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
-                                    href="#"
-                                >
-                                    Pricing
-                                </a>
-                            </li>
-                            <li className="mb-1">
-                                <a
-                                    className="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
-                                    href="#"
+
+                            <li className="mb-1 block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 ">
+                                <NavLink
+                                    onClick={CloseMobileNavbar}
+                                    to="/contact"
+                                    className={({ isActive }) =>
+                                        isActive
+                                            ? "text-blue-600 font-bold"
+                                            : "text-sm text-gray-400 hover:text-blue-600 rounded"
+                                    }
                                 >
                                     Contact
-                                </a>
+                                </NavLink>
                             </li>
                         </ul>
                     </div>
