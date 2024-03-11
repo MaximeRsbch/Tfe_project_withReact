@@ -1,8 +1,14 @@
+import { useEffect } from "react";
+import leaflet from "leaflet";
+import { Mapbox_API_KEY } from "./common/config.js";
+import Map from "../Map.jsx";
+
 function Accueil() {
     return (
         <div>
-            <h1>Accueil</h1>
-            <p>Bienvenue sur notre site !</p>
+            <div>
+                <Map />
+            </div>
         </div>
     );
 }
