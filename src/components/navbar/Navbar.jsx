@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 function navbar() {
     const OpenMobileNavbar = () => {
@@ -7,6 +7,12 @@ function navbar() {
 
     const CloseMobileNavbar = () => {
         document.getElementById("menu").classList.toggle("hidden");
+    };
+
+    const navigate = useNavigate();
+
+    const goToLogin = () => {
+        navigate("/login");
     };
 
     return (
@@ -150,7 +156,10 @@ function navbar() {
                         </svg>
                     </li>
                 </ul>
-                <button className="hidden lg:flex px-4 py-2 bg-indigo-500 hover:bg-indigo-600 text-gray-50 rounded-xl  items-center gap-2">
+                <button
+                    onClick={goToLogin}
+                    className="hidden lg:flex px-4 py-2 bg-indigo-500 hover:bg-indigo-600 text-gray-50 rounded-xl  items-center gap-2"
+                >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-5 w-5"
