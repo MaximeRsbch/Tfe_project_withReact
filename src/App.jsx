@@ -5,6 +5,7 @@ import FeaturesPages from "./pages/FeaturesPages.jsx";
 import ContactPages from "./pages/ContactPages.jsx";
 import LoginPages from "./pages/LoginPages.jsx";
 import RegisterPages from "./pages/RegisterPages.jsx";
+import ProfilPages from "./pages/ProfilPages.jsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -26,6 +27,8 @@ function App() {
                     <Route path="/login" element={<LoginPages />} />
 
                     <Route path="/register" element={<RegisterPages />} />
+
+                    <Route path="/profil" element={<ProfilPages />} />
                 </Routes>
             </div>
         </BrowserRouter>

@@ -173,7 +173,6 @@ function navbar() {
                                     setIsDropdownOpen(!isDropdownOpen)
                                 }
                                 className="flex items-center whitespace-nowrap transition duration-150 ease-in-out motion-reduce:transition-none"
-                                href="#"
                                 id="dropdownMenuButton2"
                                 role="button"
                                 data-twe-dropdown-toggle-ref
@@ -200,14 +199,14 @@ function navbar() {
                                         role="none"
                                         data-twe-dropdown-menu-items-ref
                                     >
-                                        <a
-                                            href="#"
+                                        <NavLink
+                                            to="/profil"
                                             className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                                             role="menuitem"
                                             data-twe-dropdown-item-ref
                                         >
                                             Votre profil
-                                        </a>
+                                        </NavLink>
                                         <a
                                             href="#"
                                             className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
