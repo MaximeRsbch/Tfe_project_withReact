@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import leaflet from "leaflet";
-import { Mapbox_API_KEY } from "./components/common/config.js";
+import { Mapbox_API_KEY } from "./common/config.js";
 import "leaflet/dist/leaflet.css";
 
 export default function Map() {

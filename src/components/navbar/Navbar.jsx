@@ -1,4 +1,5 @@
 import { NavLink, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 function navbar() {
     const OpenMobileNavbar = () => {
@@ -15,8 +16,12 @@ function navbar() {
         navigate("/login");
     };
 
+    const isConnect = localStorage.getItem("token");
+
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
     return (
-        <div>
+        <div className="z-10">
             <nav className="relative px-4 py-4 flex justify-between items-center bg-white">
                 <a className="text-3xl font-bold leading-none" href="#">
                     <svg className="h-10" alt="logo" viewBox="0 0 10240 10240">
@@ -156,24 +161,96 @@ function navbar() {
                         </svg>
                     </li>
                 </ul>
-                <button
-                    onClick={goToLogin}
-                    className="hidden lg:flex px-4 py-2 bg-indigo-500 hover:bg-indigo-600 text-gray-50 rounded-xl  items-center gap-2"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-5 w-5"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                    >
-                        <path
-                            fillRule="evenodd"
-                            d="M3 3a1 1 0 011 1v12a1 1 0 11-2 0V4a1 1 0 011-1zm7.707 3.293a1 1 0 010 1.414L9.414 9H17a1 1 0 110 2H9.414l1.293 1.293a1 1 0 01-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0z"
-                            clipRule="evenodd"
-                        />
-                    </svg>
-                    <span>Login</span>
-                </button>
+                {isConnect ? (
+                    <div>
+                        <div
+                            className="relative"
+                            data-twe-dropdown-ref
+                            data-twe-dropdown-alignment="end"
+                        >
+                            <a
+                                onClick={() =>
+                                    setIsDropdownOpen(!isDropdownOpen)
+                                }
+                                className="flex items-center whitespace-nowrap transition duration-150 ease-in-out motion-reduce:transition-none"
+                                href="#"
+                                id="dropdownMenuButton2"
+                                role="button"
+                                data-twe-dropdown-toggle-ref
+                                aria-expanded="false"
+                            >
+                                <img
+                                    src="https://tecdn.b-cdn.net/img/new/avatars/2.jpg"
+                                    className="rounded-full h-[25px] w-[25px]"
+                                    alt=""
+                                    loading="lazy"
+                                />
+                            </a>
+
+                            {isDropdownOpen && (
+                                <div
+                                    className="absolute right-0 z-30 w-56 mt-2 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5"
+                                    role="menu"
+                                    aria-orientation="vertical"
+                                    aria-labelledby="dropdownMenuButton2"
+                                    data-twe-dropdown-menu-ref
+                                >
+                                    <div
+                                        className="py-1"
+                                        role="none"
+                                        data-twe-dropdown-menu-items-ref
+                                    >
+                                        <a
+                                            href="#"
+                                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                            role="menuitem"
+                                            data-twe-dropdown-item-ref
+                                        >
+                                            Votre profil
+                                        </a>
+                                        <a
+                                            href="#"
+                                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                            role="menuitem"
+                                            data-twe-dropdown-item-ref
+                                        >
+                                            Paramètres
+                                        </a>
+                                        <a
+                                            href="#"
+                                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                            role="menuitem"
+                                            data-twe-dropdown-item-ref
+                                        >
+                                            Déconnexion
+                                        </a>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                ) : (
+                    <div>
+                        <button
+                            onClick={goToLogin}
+                            className="hidden lg:flex px-4 py-2 bg-indigo-500 hover:bg-indigo-600 text-gray-50 rounded-xl  items-center gap-2"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="h-5 w-5"
+                                viewBox="0 0 20 20"
+                                fill="currentColor"
+                            >
+                                <path
+                                    fillRule="evenodd"
+                                    d="M3 3a1 1 0 011 1v12a1 1 0 11-2 0V4a1 1 0 011-1zm7.707 3.293a1 1 0 010 1.414L9.414 9H17a1 1 0 110 2H9.414l1.293 1.293a1 1 0 01-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0z"
+                                    clipRule="evenodd"
+                                />
+                            </svg>
+                            <span>Login</span>
+                        </button>
+                    </div>
+                )}
             </nav>
             <div id="menu" className=" relative z-50 hidden">
                 <div className="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
