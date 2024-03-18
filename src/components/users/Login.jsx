@@ -21,8 +21,8 @@ export default function BasicExample() {
                 password: password,
             })
             .then((response) => {
-                console.log(response.data);
                 localStorage.setItem("token", response.data.token);
+                navigate("/profil");
             });
     };
 

@@ -18,6 +18,11 @@ function navbar() {
 
     const isConnect = localStorage.getItem("token");
 
+    const logout = () => {
+        localStorage.removeItem("token");
+        navigate("/login");
+    };
+
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
     return (
@@ -215,13 +220,15 @@ function navbar() {
                                         >
                                             Paramètres
                                         </a>
-                                        <a
-                                            href="#"
-                                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                                            role="menuitem"
-                                            data-twe-dropdown-item-ref
-                                        >
-                                            Déconnexion
+                                        <a className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                            <button
+                                                onClick={logout}
+                                                className=""
+                                                role="menuitem"
+                                                data-twe-dropdown-item-ref
+                                            >
+                                                Déconnexion
+                                            </button>
                                         </a>
                                     </div>
                                 </div>
