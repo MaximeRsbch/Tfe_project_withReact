@@ -1,7 +1,23 @@
-import { useState } from "react";
+import axios from "axios";
+import { useState, useRef, useEffect } from "react";
+import { jwtDecode } from "jwt-decode";
+
 function Profil() {
     const [ShowAbout, setShowAbout] = useState(false);
     const [ShowPost, setShowPost] = useState(false);
+
+    const [user, setUser] = useState([]);
+
+    const token = useRef(localStorage.getItem("token"));
+    const tokenDecode = jwtDecode(token.current);
+
+    useEffect(() => {
+        axios
+            .get(`http://localhost:3000/api/users/${tokenDecode.id_user}`)
+            .then((res) => {
+                setUser(res.data.data);
+            });
+    }, []);
 
     const showAboutOrNot = () => {
         setShowAbout(true);
@@ -34,9 +50,9 @@ function Profil() {
                             />
                         </div>
                         <p className="text-center pt-4 text-xl font-bold">
-                            Slow
+                            {user.username}
                         </p>
-                        <p className="text-center pt-2">toto@toto.com</p>
+                        <p className="text-center pt-2">{user.email}</p>
                     </div>
                 </div>
                 <div>
