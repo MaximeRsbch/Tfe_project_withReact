@@ -48,6 +48,15 @@ function Profil() {
                                 className="rounded-full w-40"
                                 src="https://tecdn.b-cdn.net/img/new/avatars/2.jpg"
                             />
+                            <div className="absolute top-56 left-52 md:top-36 md:left-44 bg-gray-400 rounded-full w-10 h-10 flex justify-center items-center">
+                                <button>
+                                    <img
+                                        className="w-5 h-5 mx-auto"
+                                        src="assets/img/crayon.png"
+                                        alt=""
+                                    />
+                                </button>
+                            </div>
                         </div>
                         <p className="text-center pt-4 text-xl font-bold">
                             {user.username}
