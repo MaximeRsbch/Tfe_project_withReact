@@ -86,7 +86,7 @@ function Profil() {
 
                     {ShowAbout && (
                         <div className="flex justify-center xl:justify-start pt-8 pb-8">
-                            <div className="bg-white w-52 h-96 shadow-xl md:w-[360px] md:h-64 xl:w-full xl:max-w-2xl ">
+                            <div className="bg-white w-52 inline-block shadow-xl pb-2 md:w-[360px] md:inline-block xl:w-full xl:max-w-2xl ">
                                 <p className="pl-2 pt-4 font-semibold">
                                     A propos :
                                 </p>
@@ -105,9 +105,29 @@ function Profil() {
                     )}
 
                     {ShowPost && (
-                        <div className="flex justify-center pt-8">
-                            <div className="bg-white w-52 h-80 shadow-xl">
-                                <p className="text-center pt-4">Nom: Slow</p>
+                        <div className="flex justify-center pt-8 pb-8 xl:pr-10">
+                            <div className="bg-white w-52  inline-block shadow-xl md:w-80 xl:w-full">
+                                <p className="pt-4 pl-4 font-bold">Michel</p>
+                                <p className="pl-4 pt-1 italic">
+                                    Cobra - Walibi
+                                </p>
+                                <p className="pl-4 pt-4">4/5</p>
+                                <p className="pl-4 pt-2 pr-4 max-w-sm xl:max-w-3xl">
+                                    Je trouve que cette attraction pue vraiment
+                                    de la chatte car elle donne de nombreux coup
+                                    dans la gueule.
+                                </p>
+
+                                <p className="pt-4 pl-4">23/01/23</p>
+                                <div className="flex justify-end pr-2 pt-4 pb-2">
+                                    <button>
+                                        <img
+                                            className="w-7 h-7 mx-auto"
+                                            src="assets/img/delete.png"
+                                            alt=""
+                                        />
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     )}
