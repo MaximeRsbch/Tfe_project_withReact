@@ -6,6 +6,7 @@ import ContactPages from "./pages/ContactPages.jsx";
 import LoginPages from "./pages/LoginPages.jsx";
 import RegisterPages from "./pages/RegisterPages.jsx";
 import ProfilPages from "./pages/ProfilPages.jsx";
+import SettingsPages from "./pages/SettingsPages.jsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -29,6 +30,8 @@ function App() {
                     <Route path="/register" element={<RegisterPages />} />
 
                     <Route path="/profil" element={<ProfilPages />} />
+
+                    <Route path="/settings" element={<SettingsPages />} />
                 </Routes>
             </div>
         </BrowserRouter>

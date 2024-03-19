@@ -207,14 +207,14 @@ function navbar() {
                                         >
                                             Votre profil
                                         </NavLink>
-                                        <a
-                                            href="#"
+                                        <NavLink
+                                            to="/settings"
                                             className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                                             role="menuitem"
                                             data-twe-dropdown-item-ref
                                         >
                                             Paramètres
-                                        </a>
+                                        </NavLink>
                                         <a className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                             <button
                                                 onClick={logout}
