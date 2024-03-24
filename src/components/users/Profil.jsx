@@ -1,12 +1,14 @@
 import axios from "axios";
 import { useState, useRef, useEffect } from "react";
 import { jwtDecode } from "jwt-decode";
+import "../../style/ScrollBar.css";
 
 function Profil() {
     const [ShowAbout, setShowAbout] = useState(false);
     const [ShowPost, setShowPost] = useState(false);
 
     const [user, setUser] = useState([]);
+    const [posts, setPosts] = useState([]);
 
     const token = useRef(localStorage.getItem("token"));
     const tokenDecode = jwtDecode(token.current);
@@ -16,6 +18,17 @@ function Profil() {
             .get(`http://localhost:3000/api/users/${tokenDecode.id_user}`)
             .then((res) => {
                 setUser(res.data.data);
+            });
+    }, []);
+
+    useEffect(() => {
+        axios
+            .get(
+                `http://localhost:3000/api/reviews/user/${tokenDecode.id_user}`
+            )
+            .then((res) => {
+                console.log(res.data.data);
+                setPosts(res.data.data);
             });
     }, []);
 
@@ -79,7 +92,7 @@ function Profil() {
                                 onClick={showPostOrNot}
                                 className="pl-8 text-lg"
                             >
-                                Posts
+                                Avis
                             </button>
                         </div>
                     </div>
@@ -105,30 +118,42 @@ function Profil() {
                     )}
 
                     {ShowPost && (
-                        <div className="flex justify-center pt-8 pb-8 xl:pr-10">
-                            <div className="bg-white w-52  inline-block shadow-xl md:w-80 xl:w-full">
-                                <p className="pt-4 pl-4 font-bold">Michel</p>
-                                <p className="pl-4 pt-1 italic">
-                                    Cobra - Walibi
-                                </p>
-                                <p className="pl-4 pt-4">4/5</p>
-                                <p className="pl-4 pt-2 pr-4 max-w-sm xl:max-w-3xl">
-                                    Je trouve que cette attraction pue vraiment
-                                    de la chatte car elle donne de nombreux coup
-                                    dans la gueule.
-                                </p>
+                        <div
+                            className="post-container"
+                            style={{ maxHeight: "500px", overflowY: "auto" }}
+                        >
+                            {posts.map((post) => (
+                                <div
+                                    key={post.id}
+                                    className="flex justify-center pt-8 pb-8 xl:pr-10"
+                                >
+                                    <div className="bg-white w-52  inline-block shadow-xl md:w-80 xl:w-full">
+                                        <p className="pt-4 pl-4 font-bold">
+                                            {post.User.username}
+                                        </p>
+                                        <p className="pl-4 pt-1 italic">
+                                            {post.Attraction.nom} - Walibi
+                                        </p>
+                                        <p className="pl-4 pt-4">
+                                            {post.rating}/5
+                                        </p>
+                                        <p className="pl-4 pt-2 pr-4 max-w-sm xl:max-w-3xl">
+                                            {post.content}
+                                        </p>
 
-                                <p className="pt-4 pl-4">23/01/23</p>
-                                <div className="flex justify-end pr-2 pt-4 pb-2">
-                                    <button>
-                                        <img
-                                            className="w-7 h-7 mx-auto"
-                                            src="assets/img/delete.png"
-                                            alt=""
-                                        />
-                                    </button>
+                                        <p className="pt-4 pl-4">23/01/23</p>
+                                        <div className="flex justify-end pr-2 pt-4 pb-2">
+                                            <button>
+                                                <img
+                                                    className="w-7 h-7 mx-auto"
+                                                    src="assets/img/delete.png"
+                                                    alt=""
+                                                />
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            ))}
                         </div>
                     )}
                 </div>
