@@ -99,20 +99,28 @@ function Profil() {
 
                     {ShowAbout && (
                         <div className="flex justify-center xl:justify-start pt-8 pb-8">
-                            <div className="bg-white w-52 inline-block shadow-xl pb-2 md:w-[360px] md:inline-block xl:w-full xl:max-w-2xl ">
-                                <p className="pl-2 pt-4 font-semibold">
-                                    A propos :
-                                </p>
-                                <p className="text-center pt-4 mx-4">
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Illum nobis sapiente
-                                    perspiciatis pariatur aut consequuntur
-                                    blanditiis eveniet suscipit, minima velit
-                                    quibusdam quidem nostrum possimus tenetur!
-                                    Cumque ducimus nemo facilis explicabo dolore
-                                    at sunt eaque laborum alias distinctio. Hic,
-                                    id nulla.
-                                </p>
+                            <div className="bg-white w-52 inline-block shadow-xl pb-2 md:w-[360px] md:inline-block xl:w-full xl:max-w-2xl">
+                                <form id="aboutForm">
+                                    <p className="pl-2 pt-4 font-semibold">
+                                        <label htmlFor="aboutInput">
+                                            A propos :
+                                        </label>
+                                    </p>
+                                    <p className="text-center pt-4 mx-4">
+                                        <textarea
+                                            id="aboutInput"
+                                            className="w-full"
+                                            rows="4"
+                                            placeholder="Saisissez votre texte ici..."
+                                        ></textarea>
+                                    </p>
+                                    <button
+                                        type="submit"
+                                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4 mx-4"
+                                    >
+                                        Enregistrer
+                                    </button>
+                                </form>
                             </div>
                         </div>
                     )}
